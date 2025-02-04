@@ -33,8 +33,21 @@ view: orders {
     # hidden: yes
     sql: ${TABLE}.user_id ;;
   }
-  measure: count {
+
+  measure: count_html {
     type: count
-    drill_fields: [id, users.last_name, users.id, users.first_name, order_items.count]
+    html: <a href="/embed/dashboards/5?Completed+Date=2025%2F01%2F01+to+2025%2F01%2F22">Link</a> ;;
+    #link: {
+    #  label: "Dash"
+    #  url: "/dashboards/5?Completed+Date=2025%2F01%2F01+to+2025%2F01%2F22"
+    #}
+  }
+
+  measure: count_link {
+    type: count
+    link: {
+      label: "Dash"
+     url: "/embed/dashboards/5?Completed+Date=2025%2F01%2F01+to+2025%2F01%2F22"
+    }
   }
 }
