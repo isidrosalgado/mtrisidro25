@@ -5,7 +5,7 @@ view: orders {
   parameter: user_input_period {
     view_label: "testing case"
     label: "Choose Timeframe"
-    description: "Choose from aggregations by day, week, month, etc. This changes the dates in '{{_view._name}} Period.'"
+    description: "prueba"
     type: unquoted
     allowed_value: {
       label: "Day"
