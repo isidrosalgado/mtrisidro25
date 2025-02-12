@@ -2,6 +2,28 @@ view: orders {
   sql_table_name: `orders.orders` ;;
   drill_fields: [id]
 
+  parameter: user_input_period {
+    view_label: "Period over Period Analysis"
+    label: "Choose Timeframe for {{_view._name}} Date"
+    description: "Choose from aggregations by day, week, month, etc. This changes the dates in '{{_view._name}} Period.'"
+    type: unquoted
+    allowed_value: {
+      label: "Day"
+      value: "day"
+    }
+  }
+
+  dimension: date {
+    sql:
+    {% if user_input_period._parameter_value == "day" %}
+    ${created_date}
+     {% elsif user_input_period._parameter_value == "month" %}
+    ${created_month}
+    {% else %}
+    ${created_date}
+    {% endif %};;
+  }
+
   dimension: id {
     primary_key: yes
     type: number
@@ -36,11 +58,9 @@ view: orders {
 
   measure: count_html {
     type: count
-    html: <a href="/embed/dashboards/5?Completed+Date=2025%2F01%2F01+to+2025%2F01%2F22">Link</a> ;;
-    #link: {
-    #  label: "Dash"
-    #  url: "/dashboards/5?Completed+Date=2025%2F01%2F01+to+2025%2F01%2F22"
-    #}
+    html: <a href="/embed/dashboards/5?Completed+Date=2025%2F01%2F01+to+2025%2F01%2F22">Link</a>
+          <a href="https://gcpl2420.cloud.looker.com/embed/dashboards/225">Link2</a>;;
+
   }
 
   measure: count_link {
@@ -48,6 +68,10 @@ view: orders {
     link: {
       label: "Dash"
      url: "/embed/dashboards/5?Completed+Date=2025%2F01%2F01+to+2025%2F01%2F22"
+    }
+    link: {
+      label: "Dash2"
+      url: "https://gcpl2420.cloud.looker.com/embed/dashboards/225"
     }
   }
 }
