@@ -3,8 +3,8 @@ view: orders {
   drill_fields: [id]
 
   parameter: user_input_period {
-    view_label: "Period over Period Analysis"
-    label: "Choose Timeframe for {{_view._name}} Date"
+    view_label: "testing case"
+    label: "Choose Timeframe"
     description: "Choose from aggregations by day, week, month, etc. This changes the dates in '{{_view._name}} Period.'"
     type: unquoted
     allowed_value: {
