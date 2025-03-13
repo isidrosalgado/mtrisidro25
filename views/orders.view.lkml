@@ -13,6 +13,7 @@ view: orders {
     }
   }
 
+
   dimension: date {
     sql:
     {% if user_input_period._parameter_value == "day" %}
@@ -60,7 +61,6 @@ view: orders {
     type: count
     html: <a href="/embed/dashboards/5?Completed+Date=2025%2F01%2F01+to+2025%2F01%2F22">Link</a>
           <a href="https://gcpl2420.cloud.looker.com/embed/dashboards/225">Link2</a>;;
-
   }
 
   measure: count_link {

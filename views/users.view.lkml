@@ -3,19 +3,23 @@ view: users {
   drill_fields: [id]
 
   dimension: id {
+    label: "rash"
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
   }
   dimension: age {
+    label: "cash"
     type: number
     sql: ${TABLE}.age ;;
   }
   dimension: city {
+    label: "tash"
     type: string
     sql: ${TABLE}.city ;;
   }
   dimension: country {
+    label: "hash"
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
@@ -55,6 +59,13 @@ view: users {
   }
   measure: count {
     type: count
-    drill_fields: [id, last_name, first_name, orders.count, pvalue.count]
+    drill_fields: [id]
   }
+  measure: count_link {
+    type: count
+    link: {
+      label: "Dash"
+      url: "https://gcps250.cloud.looker.com/dashboards/17"
+    }
+    }
 }
