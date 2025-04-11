@@ -25,6 +25,7 @@ view: orders {
     {% endif %};;
   }
 
+
   dimension: id {
     primary_key: yes
     type: number
@@ -55,6 +56,17 @@ view: orders {
     type: number
     # hidden: yes
     sql: ${TABLE}.user_id ;;
+  }
+
+  dimension: sap_material_id
+  {
+    type: string
+    sql: ${TABLE}.id ;;
+    link:
+    {
+     label: "User Facts Explore Explore"
+      url: "/explore/ecommerce/users?fields=users.id,users.name&f[users.state]={{ _filters['users.state'] | url_encode }}"
+    }
   }
 
   measure: count_html {
